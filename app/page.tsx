@@ -1,3 +1,4 @@
+/*
 import Image from "next/image";
 
 export default function Home() {
@@ -65,5 +66,37 @@ export default function Home() {
         </div>
       </main>
     </div>
+  );
+}
+*/
+
+import ProjectList from '@/components/ProjectList';
+
+const projects = [
+  {
+    title: 'Service Network',
+    description: 'A service-focused web application designed to promote service across the world by connecting volunteers with service opportunities in their community.',
+    technologies: ['JavaScript', 'CSS', 'HTML', 'Node.js', 'PostgreSQL'],
+    link: 'https://github.com/schoolonlyaccount/cse340-course-repo'
+  },
+  {
+    title: "Kell's Video Game Statistics",
+    description: 'A web application that displays the top 10 video games based on sales and wishlists, including the top-ranked game in each category.',
+    technologies: ['JavaScript', 'CSS', 'HTML'],
+    link: 'https://github.com/schoolonlyaccount/wdd330-my-final-project'
+  }
+];
+
+export default function Home() {
+  return (
+    <main className="mx-auto max-w-5xl px-4 py-12 text-white sm:px-6 lg:px-8">
+      <section className="py-12 text-center sm:py-16">
+        <h1 className="mb-4 text-4xl font-bold tracking-tight text-white">My Portfolio</h1>
+        <p className="mx-auto max-w-2xl text-lg leading-relaxed text-slate-300">
+          I'm a full-stack developer learning Next.js and React. Here are some of my recent projects.
+        </p>
+      </section>
+      <ProjectList projects={projects} />
+    </main>
   );
 }
