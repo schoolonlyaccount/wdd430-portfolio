@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import NavLinks from './NavLinks';
 
 export default function Header() {
     return (
@@ -7,18 +7,7 @@ export default function Header() {
                 Kell Brine
             </div>
             <nav className="mx-auto flex max-w-5xl items-center justify-between px-4 sm:px-6 lg:px-8">
-                <ul className="flex gap-6 text-sm font-medium">
-                    <li>
-                        <Link href="/" className="transition-colors hover:text-blue-400">
-                            Home
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href="/about" className="transition-colors hover:text-blue-400">
-                            About
-                        </Link>
-                    </li>
-                </ul>
+                <NavLinks />
             </nav>
         </header>
     );
