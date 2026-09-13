@@ -32,6 +32,11 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.active,
+.inactive {
+  padding: 0.5rem;
+}
+
 .active {
   color: var(--active-color);
   text-decoration: underline;
@@ -39,12 +44,10 @@ body {
   text-underline-offset: 8px;
 }
 
-.active,
 .inactive {
-  padding: 0.5rem;
+  transition: color 0.5s ease;
 }
 
 .inactive:hover {
   color: var(--hover-color1);
-  transition: color 0.5s ease;
 }
