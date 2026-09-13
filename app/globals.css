@@ -9,6 +9,7 @@
   --hover-color1: #fb58fe;
   --hover-color2: #7c2b7d;
   --active-color: #75ff6b;
+  --special-red: #9e0000;
 }
 
 @theme inline {

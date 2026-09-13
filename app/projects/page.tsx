@@ -35,7 +35,7 @@ export default function Projects() {
                             {project.technologies?.map((tech: string) => (
                                 <span
                                     key={tech}
-                                    className="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-[red]"
+                                    className="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-[var(--special-red)]"
                                 >
                                     {tech}
                                 </span>

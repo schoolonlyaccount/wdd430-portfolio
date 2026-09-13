@@ -12,7 +12,7 @@ export default function SkillsCard({ title, skills }: Skill) {
 
             <div className="flex flex-wrap gap-2">
                 {skills.map((skill) => (
-                    <span key={skill} className="rounded-md border border-slate-200 bg-slate-50 px-3 py-1.5 text-sm font-medium text-[red]">
+                    <span key={skill} className="rounded-md border border-slate-200 bg-slate-50 px-3 py-1.5 text-sm font-medium text-[var(--special-red)]">
                         {skill}
                     </span>
                 ))}

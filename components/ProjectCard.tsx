@@ -10,7 +10,7 @@ export default function ProjectCard({ title, description, technologies, link }: 
         <article className="rounded-xl border-l-4 border-l-[var(--secondary-color)] bg-white p-6 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md">
             <h2 className="mb-3 text-xl font-bold text-black">{title}</h2>
             <p className="mb-4 leading-relaxed text-black">{description}</p>
-            <p className="text-sm text-[red]">
+            <p className="text-sm text-[var(--special-red)]">
                 <strong className="font-semibold text-slate-800">Technologies:</strong> {technologies.join(', ')}
             </p>
 
