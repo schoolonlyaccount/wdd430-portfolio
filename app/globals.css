@@ -3,6 +3,12 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  --primary-color: #09193e;
+  --secondary-color: #155c9d;
+  --hover-color1: #fb58fe;
+  --hover-color2: #7c2b7d;
+  --active-color: #75ff6b;
 }
 
 @theme inline {
@@ -26,8 +32,18 @@ body {
 }
 
 .active {
-  color: rgb(96 165 250);
+  color: var(--active-color);
   text-decoration: underline;
   text-decoration-thickness: 2px;
   text-underline-offset: 8px;
+}
+
+.active,
+.inactive {
+  padding: 0.5rem;
+}
+
+.inactive:hover {
+  color: var(--hover-color1);
+  transition: color 0.5s ease;
 }

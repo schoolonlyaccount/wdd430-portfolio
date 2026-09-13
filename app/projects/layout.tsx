@@ -8,19 +8,19 @@ export default function ProjectsLayout({ children, }: { children: React.ReactNod
 
     return (
         <section>
-            <nav aria-label="Projects" className="mx-auto max-w-5xl px-4 py-4 sm:px-6 lg:px-8">
-                <ul className="flex gap-6 border-b border-gray-200 pb-3 text-sm font-medium dark:border-gray-700">
+            <nav aria-label="Projects" className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-4">
+                <ul className="flex gap-6 border-b border-white pb-5 text-sm font-medium">
                     <li>
                         <Link
                             href="/projects"
-                            className={pathname === '/projects' ? 'active' : ''}
+                            className={pathname === '/projects' ? 'active' : 'inactive'}
                             aria-current={pathname === '/projects' ? 'page' : undefined}
                         >Projects</Link>
                     </li>
                     <li>
                         <Link
                             href="/projects/settings"
-                            className={pathname === '/projects/settings' ? 'active' : ''}
+                            className={pathname === '/projects/settings' ? 'active' : 'inactive'}
                             aria-current={pathname === '/projects/settings' ? 'page' : undefined}
                         >Settings</Link>
                     </li>

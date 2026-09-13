@@ -13,21 +13,21 @@ export default function Projects() {
 
     return (
         <main className="mx-auto max-w-5xl px-4 py-12 text-white sm:px-6 lg:px-8">
-            <section className="py-12 text-center sm:py-16">
-                <h1 className="mb-4 text-4xl font-bold tracking-tight text-white">Projects Overview</h1>
-            </section>
+            <div className="text-center mb-12 sm:mb-16 text-white">
+                <h1 className="mb-4 text-4xl font-bold tracking-tight">Projects Overview</h1>
+            </div>
 
             <section className="grid gap-6 md:grid-cols-2">
                 {projects.map((project: any) => (
                     <div
                         key={project.id}
-                        className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+                        className="rounded-xl border-l-4 border-l-[var(--secondary-color)] bg-white p-6 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
                     >
-                        <h2 className="mb-2 text-xl font-semibold text-gray-900">
+                        <h2 className="mb-2 text-xl font-semibold text-black">
                             {project.title}
                         </h2>
 
-                        <p className="mb-4 text-sm leading-6 text-gray-600">
+                        <p className="mb-4 text-sm leading-6 text-black">
                             {project.description}
                         </p>
 
@@ -35,7 +35,7 @@ export default function Projects() {
                             {project.technologies?.map((tech: string) => (
                                 <span
                                     key={tech}
-                                    className="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700"
+                                    className="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-[red]"
                                 >
                                     {tech}
                                 </span>

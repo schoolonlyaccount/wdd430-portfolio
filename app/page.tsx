@@ -90,12 +90,13 @@ const projects = [
 export default function Home() {
   return (
     <main className="mx-auto max-w-5xl px-4 py-12 text-white sm:px-6 lg:px-8">
-      <section className="py-12 text-center sm:py-16">
-        <h1 className="mb-4 text-4xl font-bold tracking-tight text-white">My Portfolio</h1>
-        <p className="mx-auto max-w-2xl text-lg leading-relaxed text-slate-300">
+      <div className="text-center mb-12 sm:mb-16 text-white">
+        <h1 className="mb-4 text-4xl font-bold tracking-tight">My Portfolio</h1>
+        <p className="mx-auto max-w-2xl text-lg leading-relaxed">
           I'm a full-stack developer learning Next.js and React. Here are some of my recent projects.
         </p>
-      </section>
+      </div>
+
       <ProjectList projects={projects} />
     </main>
   );
