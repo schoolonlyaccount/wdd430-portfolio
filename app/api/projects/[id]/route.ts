@@ -15,7 +15,7 @@ export async function GET(
         );
     }
 
-    const project = getProjectById(projectId);
+    const project = await getProjectById(projectId);
 
     if (!project) {
         return NextResponse.json(
