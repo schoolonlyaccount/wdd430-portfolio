@@ -15,7 +15,21 @@ export default function ProjectsLayout({ children, }: { children: React.ReactNod
                             href="/projects"
                             className={pathname === '/projects' ? 'active' : 'inactive'}
                             aria-current={pathname === '/projects' ? 'page' : undefined}
-                        >Projects</Link>
+                        >All Projects</Link>
+                    </li>
+                    <li>
+                        <Link
+                            href="/projects/school"
+                            className={pathname === '/projects/school' ? 'active' : 'inactive'}
+                            aria-current={pathname === '/projects/school' ? 'page' : undefined}
+                        >School Projects</Link>
+                    </li>
+                    <li>
+                        <Link
+                            href="/projects/open-source"
+                            className={pathname === '/projects/open-source' ? 'active' : 'inactive'}
+                            aria-current={pathname === '/projects/open-source' ? 'page' : undefined}
+                        >Open Source Projects</Link>
                     </li>
                     <li>
                         <Link

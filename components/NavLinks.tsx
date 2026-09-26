@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 
 export default function NavLinks() {
     const pathname = usePathname();
+    const isProject = pathname.startsWith('/projects');
 
     return (
         <nav aria-label="Primary" className="mx-auto flex max-w-5xl items-center justify-between px-4 sm:px-6 lg:px-8 mt-2 py-2">
@@ -33,7 +34,7 @@ export default function NavLinks() {
                 <li>
                     <Link
                         href="/projects"
-                        className={pathname === '/projects' ? 'active' : 'inactive'}
+                        className={isProject ? 'active' : 'inactive'}
                         aria-current={pathname === '/projects' ? 'page' : undefined}
                     >Projects</Link>
                 </li>
