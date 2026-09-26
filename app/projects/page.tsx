@@ -1,9 +1,13 @@
 //'use client';
 
 //import { useEffect, useState } from 'react';
-import { headers } from 'next/headers';
+import { fetchFilteredProjects, fetchProjectsPages } from '@/lib/projects-db';
+import { ProjectSearch } from '@/components/ProjectSearch';
+import Pagination from '@/components/Pagination';
 
-export default async function Projects() {
+export default async function Projects(props: {
+    searchParams?: Promise<{ query?: string; page?: string }>
+}) {
     //const [projects, setProjects] = useState([]);
 
     //useEffect(() => {
@@ -12,21 +16,21 @@ export default async function Projects() {
     //        .then((data) => setProjects(data));
     //}, []);
 
-    const headersList = await headers();
+    const searchParams = await props.searchParams;
+    const query = searchParams?.query || '';
+    const currentPage = Number(searchParams?.page) || 1;
 
-    const host = headersList.get('host');
-    const protocol = headersList.get('x-forwarded-proto') ?? 'http';
-
-    const res = await fetch(`${protocol}://${host}/api/projects`, { cache: 'no-store' });
-    if (!res.ok) {
-        throw new Error('Failed to fetch projects');
-    }
-    const projects = await res.json();
+    const projects = await fetchFilteredProjects(query, currentPage);
+    const totalPages = await fetchProjectsPages(query);
 
     return (
         <main className="mx-auto max-w-5xl px-4 py-12 text-white sm:px-6 lg:px-8">
             <div className="text-center mb-12 sm:mb-16 text-white">
                 <h1 className="mb-4 text-4xl font-bold tracking-tight">Projects Overview</h1>
+            </div>
+
+            <div className="mb-8">
+                <ProjectSearch />
             </div>
 
             <section className="grid gap-6 md:grid-cols-2">
@@ -56,6 +60,8 @@ export default async function Projects() {
                     </div>
                 ))}
             </section>
+
+            <Pagination totalPages={totalPages} />
         </main>
     );
 }
