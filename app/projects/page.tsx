@@ -1,15 +1,27 @@
-'use client';
+//'use client';
 
-import { useEffect, useState } from 'react';
+//import { useEffect, useState } from 'react';
+import { headers } from 'next/headers';
 
-export default function Projects() {
-    const [projects, setProjects] = useState([]);
+export default async function Projects() {
+    //const [projects, setProjects] = useState([]);
 
-    useEffect(() => {
-        fetch('/api/projects')
-            .then((res) => res.json())
-            .then((data) => setProjects(data));
-    }, []);
+    //useEffect(() => {
+    //    fetch('/api/projects')
+    //        .then((res) => res.json())
+    //        .then((data) => setProjects(data));
+    //}, []);
+
+    const headersList = await headers();
+
+    const host = headersList.get('host');
+    const protocol = headersList.get('x-forwarded-proto') ?? 'http';
+
+    const res = await fetch(`${protocol}://${host}/api/projects`, { cache: 'no-store' });
+    if (!res.ok) {
+        throw new Error('Failed to fetch projects');
+    }
+    const projects = await res.json();
 
     return (
         <main className="mx-auto max-w-5xl px-4 py-12 text-white sm:px-6 lg:px-8">
