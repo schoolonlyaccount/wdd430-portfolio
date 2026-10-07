@@ -1,4 +1,6 @@
 import { headers } from 'next/headers';
+import Link from 'next/link';
+import { deleteProject } from '@/lib/actions';
 
 export default async function OpenSource() {
     const headersList = await headers();
@@ -22,7 +24,7 @@ export default async function OpenSource() {
                 {projects.map((project: any) => (
                     <div
                         key={project.id}
-                        className="rounded-xl border-l-4 border-l-[var(--secondary-color)] bg-white p-6 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
+                        className="rounded-xl border-l-4 border-l-[var(--secondary-color)] bg-white p-6 shadow-sm"
                     >
                         <h2 className="mb-2 text-xl font-semibold text-black">
                             {project.title}
@@ -36,11 +38,22 @@ export default async function OpenSource() {
                             {project.technologies?.map((tech: string) => (
                                 <span
                                     key={tech}
-                                    className="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-[var(--special-red)]"
+                                    className="rounded-full bg-gray-100 border border-gray-200 px-3 py-1 text-xs font-medium text-[var(--special-red)]"
                                 >
                                     {tech}
                                 </span>
                             ))}
+                        </div>
+
+                        <div className="flex gap-2 mt-6 items-align-center justify-center border-t border-gray-400 pt-4">
+                            <form action={deleteProject.bind(null, project.id)}>
+                                <button type="submit" className='bg-red-600 text-white px-4 py-2 rounded text-sm cursor-pointer hover:bg-red-800 transition-all duration-200'>
+                                    Delete Project
+                                </button>
+                            </form>
+                            <Link href={`/projects/${project.id}/edit`} className='bg-blue-600 text-white px-4 py-2 rounded text-sm cursor-pointer hover:bg-blue-800 transition-all duration-200'>
+                                Edit Project
+                            </Link>
                         </div>
                     </div>
                 ))}

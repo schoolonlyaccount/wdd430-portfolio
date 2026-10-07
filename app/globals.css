@@ -56,3 +56,48 @@ input[type='search']::-webkit-search-cancel-button {
   cursor: pointer;
   filter: invert(20%) sepia(90%) saturate(5000%) hue-rotate(350deg);
 }
+
+.project-form {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem auto;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 8px;
+  border-left: 4px solid var(--secondary-color);
+
+  label {
+    color: black;
+    font-size: 1.2rem;
+  }
+
+  select,
+  input {
+    margin: 0.5rem 0;
+    padding: 5px;
+    color: var(--active-color);
+    background-color: black;
+  }
+
+  input:focus,
+  select:focus {
+    color: var(--hover-color1);
+  }
+
+  button {
+    margin-top: 1rem;
+    width: 60%;
+    align-self: center;
+    padding: 0.2rem;
+    font-size: 1.2rem;
+    background-color: var(--secondary-color);
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: var(--hover-color2);
+    }
+  }
+}
