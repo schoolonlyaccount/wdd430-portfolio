@@ -1,5 +1,6 @@
 import { updateProject } from '@/lib/actions';
 import { sql } from '@vercel/postgres';
+import { notFound } from 'next/navigation';
 
 export default async function Page(props: { params: Promise<{ id: string }> }) {
     const params = await props.params;
@@ -14,7 +15,7 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
     const project = rows[0];
 
     if (!project) {
-        return <p>Project not found.</p>;
+        notFound();
     }
 
     return (
