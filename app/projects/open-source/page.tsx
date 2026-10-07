@@ -1,6 +1,7 @@
 import { headers } from 'next/headers';
 import Link from 'next/link';
 import { deleteProject } from '@/lib/actions';
+import type { Project } from '@/lib/projects-db';
 
 export default async function OpenSource() {
     const headersList = await headers();
@@ -12,7 +13,7 @@ export default async function OpenSource() {
     if (!res.ok) {
         throw new Error('Failed to fetch projects');
     }
-    const projects = await res.json();
+    const projects: Project[] = await res.json();
 
     return (
         <main className="mx-auto max-w-5xl px-4 py-12 text-white sm:px-6 lg:px-8">
@@ -21,7 +22,7 @@ export default async function OpenSource() {
             </div>
 
             <section className="grid gap-6 md:grid-cols-2">
-                {projects.map((project: any) => (
+                {projects.map((project) => (
                     <div
                         key={project.id}
                         className="rounded-xl border-l-4 border-l-[var(--secondary-color)] bg-white p-6 shadow-sm"

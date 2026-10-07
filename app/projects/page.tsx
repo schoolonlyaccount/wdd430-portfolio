@@ -2,6 +2,7 @@
 
 //import { useEffect, useState } from 'react';
 import { fetchFilteredProjects, fetchProjectsPages } from '@/lib/projects-db';
+import type { Project } from '@/lib/projects-db';
 import { ProjectSearch } from '@/components/ProjectSearch';
 import Pagination from '@/components/Pagination';
 import Link from 'next/link';
@@ -36,7 +37,7 @@ export default async function Projects(props: {
             </div>
 
             <section className="grid gap-6 md:grid-cols-2">
-                {projects.map((project: any) => (
+                {projects.map((project: Project) => (
                     <div
                         key={project.id}
                         className="rounded-xl border-l-4 border-l-[var(--secondary-color)] bg-white p-6 shadow-sm"

@@ -24,7 +24,7 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
                 <h1 className="mb-4 text-4xl font-bold tracking-tight">Edit Project</h1>
             </div>
 
-            <form action={updateProject.bind(null, id)} className="project-form">
+            <form action={updateProject.bind(null, Number(id))} className="project-form">
                 <label htmlFor="title">Title</label>
                 <input id="title" name="title" defaultValue={project.title} required />
 
