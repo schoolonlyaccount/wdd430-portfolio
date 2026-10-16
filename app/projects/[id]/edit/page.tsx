@@ -1,8 +1,12 @@
 import { updateProject } from '@/lib/actions';
 import { sql } from '@vercel/postgres';
 import { notFound } from 'next/navigation';
+import { auth } from '@/auth';
 
 export default async function Page(props: { params: Promise<{ id: string }> }) {
+    const session = await auth();
+    //const user = session?.user;
+
     const params = await props.params;
     const id = params.id;
 

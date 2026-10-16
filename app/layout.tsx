@@ -35,6 +35,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { SessionProvider } from 'next-auth/react';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -57,9 +58,11 @@ export default function RootLayout({ children }: { children: React.ReactNode; })
       <body className="min-h-full flex flex-col">
         <Header />
 
-        <div className="flex-1 bg-black">
-          {children}
-        </div>
+        <SessionProvider>
+          <div className="flex-1 bg-black">
+            {children}
+          </div>
+        </SessionProvider>
 
         <Footer />
       </body>

@@ -1,11 +1,14 @@
 'use client';
 
 import { createProject, type State } from '@/lib/actions';
+import { useSession } from 'next-auth/react';
 import { useActionState } from 'react';
 
 const initialActionState: State = { message: null, errors: {} };
 
 export default function Page() {
+    const { data: session } = useSession();
+
     const [state, formAction, isPending] = useActionState(createProject, initialActionState);
 
     return (
