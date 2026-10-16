@@ -2,6 +2,39 @@ import { headers } from 'next/headers';
 import Link from 'next/link';
 import { deleteProject } from '@/lib/actions';
 import type { Project } from '@/lib/projects-db';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Open Source',
+};
+
+/*
+type Props = {
+  params: Promise<{ id: string }>;
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { id } = await params;
+  const project = await fetchProjectById(id);
+
+  if (!project) {
+    return {
+      title: 'Project Not Found',
+      description: 'The requested portfolio project could not be found.',
+    };
+  }
+
+  return {
+    title: project.title,
+    description: project.summary,
+    openGraph: {
+      title: project.title,
+      description: project.summary,
+      images: project.imageUrl ? [project.imageUrl] : [],
+    },
+  };
+}
+*/
 
 export default async function OpenSource() {
     const headersList = await headers();

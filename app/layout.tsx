@@ -48,8 +48,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Kell Brine | Portfolio",
-  description: "Kell Brine's developer portfolio featuring projects and technical skills.",
+  title: {
+    default: "Kell Brine | Project Portfolio",
+    template: "%s | Project Portfolio"
+  },
+  description: "A portfolio of projects built by Kell Brine, a web developer and designer.",
+  metadataBase: new URL('https://wdd430-portfolio-git-main-schoolonlyaccount.vercel.app/')
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode; }) {
